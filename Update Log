@@ -1,19 +1,1 @@
-# Reach Project Emulator For GTA 6
 
-Tracking updates, research, and development progress for the Reach Project GTA 6 emulator.
-
-## Current Status
-- **Status:** Early development (emulator files are not yet released).
-- **Performance:** Running at ~15 FPS.
-- **Graphics:** Drawings and rendering are working well.
-- **Audio:** Still in progress and needs further work.
-
-## Update Log
-- **Initial Milestone:**
-  - Confirmed stable execution at **15 FPS**.
-  - Verified **drawings and rendering** pipeline is functioning properly.
-  - Identified **audio** subsystem as the next area requiring work.
-
-## Updates & Links
-- Follow progress and announcements on X: https://x.com/RainReachDetail
-- [Proof Of 15 FPS](https://x.com/RainReachDetail/status/2125515747980165132?a=_MviHBpNrQP2rPPogNY&s=20)
