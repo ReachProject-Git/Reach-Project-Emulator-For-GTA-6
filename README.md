@@ -1,29 +1,48 @@
+# Reach Project Emulator For GTA 6
 
-# Q :How Do I Access, and where is the files.
-# A : I wait until i atleast get it on 30 fps before giving the files
+Tracking updates, research, and development progress for the Reach Project GTA 6 emulator.
 
+## Current Status
+- **Status:** Early development (emulator files are not yet released).
+- **Performance:** Running at ~15 FPS.
+- **Graphics:** Drawings and rendering are working well.
+- **Audio:** Still in progress and needs further work.
+
+## Update Log
+- **Initial Milestone:**
+  - Confirmed stable execution at **15 FPS**.
+  - Verified **drawings and rendering** pipeline is functioning properly.
+  - Identified **audio** subsystem as the next area requiring work.
+
+## FAQ
+**Q: How do I access it, and where are the files?**  
+**A:** I am waiting until I get it running at least at **30 FPS** before releasing the files.
+
+## Planned Layout
+
+```text
 Reach-Project-Emulator-For-GTA-6/
-├── README.md                  # Architecture overview, build steps, & Groundwork status table
-├── LICENSE                    # MIT, GPL-3.0, or AGPL (prevents ambiguity)
-├── CMakeLists.txt / .sln      # Clean, reproducible build configuration
+├── README.md                  # Architecture overview, build steps, & groundwork status table
+├── LICENSE                    # MIT, GPL-3.0, or AGPL
+├── CMakeLists.txt / .sln      # Build configuration
 ├── src/
-│   ├── main.cpp               # CLI / launcher entry point (takes path to unpacked XVC/package)
-│   ├── loader/                # [2.0 pts] PE/XEX2/GDK executable mapper & import resolver
+│   ├── main.cpp               # CLI / launcher entry point (path to unpacked package)
+│   ├── loader/                # Executable mapper & import resolver
 │   │   ├── pe_loader.cpp      # Maps sections, relocations, TLS, and exception tables
-│   │   └── import_table.cpp   # Binds console DLL imports to HLE shims
-│   ├── kernel/                # [2.0 pts] Scarlett OS & GDK HLE modules
-│   │   ├── kernelx.cpp        # VirtualAlloc/XMem, threading, fibers, synchronization primitives
-│   │   ├── xgameruntime.cpp   # XGameRuntimeInitialize, task queues, user/storage stubs
-│   │   └── win32_shims.cpp    # Console-specific Win32 API subset
-│   ├── gpu/                   # [3.2 pts] D3D12.X -> PC D3D12 / Vulkan backend
-│   │   ├── d3d12_xs.cpp       # Xbox D3D12 device, command queue, & descriptor heap mapping
-│   │   └── swapchain.cpp      # Present / frame pacing bridge to Windows HWND
-│   ├── shader/                # [2.8 pts] RDNA2 (GFX10.3) shader lifter / translator
-│   │   ├── rdna2_decoder.cpp  # Parses precompiled console shader microcode / DXBC-X
-│   │   └── spirv_dxil.cpp     # Emits PC DXIL or SPIR-V
-│   └── vfs/                   # Virtual file system & DirectStorage / Win32 I/O redirection
-├── tests/                     # Crucial for the scout's "tests" check!
-│   ├── test_pe_loader.cpp     # Unit tests for PE mapping & import resolution
-│   └── test_hle_stubs.cpp     # Tests for XMem / XGameRuntime calls
+│   │   └── import_table.cpp   # Binds console DLL imports to shims
+│   ├── kernel/                # OS & runtime modules
+│   │   ├── kernelx.cpp        # Memory allocation, threading, fibers, synchronization
+│   │   ├── xgameruntime.cpp   # Runtime initialization, task queues, user/storage stubs
+│   │   └── win32_shims.cpp    # Win32 API subset
+│   ├── gpu/                   # PC D3D12 / Vulkan backend
+│   │   ├── d3d12_xs.cpp       # Device, command queue, & descriptor heap mapping
+│   │   └── swapchain.cpp      # Present / frame pacing bridge
+│   ├── shader/                # Shader decoder / translator
+│   │   ├── rdna2_decoder.cpp  # Parses precompiled shader microcode
+│   │   └── spirv_dxil.cpp     # Emits DXIL or SPIR-V
+│   └── vfs/                   # Virtual file system & I/O redirection
+├── tests/                     # Unit tests
+│   ├── test_pe_loader.cpp     # Tests for executable mapping & import resolution
+│   └── test_hle_stubs.cpp     # Tests for memory & runtime calls
 └── docs/
-    └── ARCHITECTURE.md        # Notes on Scarlett HLE ABI & memory layout
+    └── ARCHITECTURE.md        # Notes on ABI & memory layout
